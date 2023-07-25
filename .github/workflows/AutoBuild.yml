@@ -55,7 +55,7 @@ jobs:
     strategy:
       matrix:
         version: [21.02.7, 22.03.5]
-        target: ['x86/64', 'ath79/nand']
+        target: ['x86/64', 'ath79/nand', 'rockchip']
         include:
           - usign_id: '53FF2B6672243D28'
           - gpg_id: 'A5F2461EC8F6DCAA'
@@ -66,6 +66,9 @@ jobs:
           - target: 'ath79/nand'
             arch: mips_24kc
             no_img: true
+          - target: 'rockchip'
+            arch: armv8
+
     uses: ./.github/workflows/compile.yml
     with:
       build_mode: ${{ inputs.build_mode }}
